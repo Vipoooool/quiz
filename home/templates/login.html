@@ -1,0 +1,60 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Log In</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/material-design-iconic-font.min.css' %}"/>
+    <!-- Main css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/auth_style.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'stylesheets/main.css' %}" />
+</head>
+<body style="background-image: url(/static/images/ktm_from_chl.jpg); background-repeat: no-repeat;">
+
+    <div class="main">
+
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <h2 class="title">Log In</h2>
+                    <form method="POST" id="signup-form" class="signup-form">
+                        {% csrf_token %}
+                        {% for error in form.non_field_errors %}
+                            <p style="color: red; font-style: oblique;">{{ error|escape }}</p>
+                        {% endfor %}
+                        <div class="form-group">
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.password }}
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Log In"/>
+                        </div>
+                    </form>
+                    <div>
+                        <p style="text-align: center;">OR</p>
+                    </div>
+                    <div>
+                        <a href="{% provider_login_url 'google' process='login' method='oauth2' %}" class="button form-submit google" role="button" >Login With Google</a>
+                    </div>
+                    <p class="loginhere">
+                        Don't have an account ? <a href="{% url 'signup' %}" class="loginhere-link">Create Account</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+	<script src='{% static "javascript/jquery.min.js" %}'></script>
+	<script src='{% static "javascript/main.js" %}'></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+
+    <title>{% block title %} {% endblock %}</title>
+    {% block css %} 
+    <style>
+      .head1 {
+    color: #FBAD30;
+    font-size: 2rem;
+    font-weight: bold;
+    height: 50px;
+  }
+
+  .head2 {
+    color: #EF4926;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+    </style>
+    {% endblock %}
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><span class="head1">Your</span> <span class="head2">Quiz</span></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <form id="search" method="get" action="/blog">
+                    <input type="text" name="query" placeholder="Search" />
+                  </form>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/history">भारतीय इतिहास</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/constitution">संविधान</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/geography">भूगोल</a>
+                </li>
+                <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        सामान्य विज्ञान
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="/general_science/">जनरल साइंस</a></li>
+                        <li><a class="dropdown-item" href="/physics/">भौतिक विज्ञान</a></li>
+                        <li><a class="dropdown-item" href="/chemistry/">रसायन विज्ञान</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <li class="nav-item">
+                  <a class="nav-link" href="/mp_gk">मध्य प्रदेश G.K</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/current_affair">समसामयिकी</a>
+                </li>
+                {% if user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Welcome {{request.user}}</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    {% if user.is_superuser %}
+                      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                        <ul class="navbar-nav">
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Admin
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                              <li><a class="dropdown-item" href="/add_quiz/">Add Quiz</a></li>
+                              <li><a class="dropdown-item" href="/add_question/">Add Questions</a></li>
+                              <li><a class="dropdown-item" href="/results/">Results of the Users</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    {% endif %}
+                {% else %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/signup">Sign Up</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                  </li>
+                {% endif %}
+              </ul>
+          </div>
+        </div>
+      </nav>
+      {% block body %} {% endblock %}
+      <footer style="display: block;">
+        
+        <div class="school_footer" style="font-family: 'Poppins';">
+            <div id="footer_div" style="background-color: #282828;">
+                <div class="container">
+                    <div class="row menu_row">
+                        <div class="col-xs-12 col-sm-12 col-md-3">
+                            <div class="addrss">
+                                <p class="eg_footer_logo"><a class="" href="/"><span class="head1">Your</span> <span class="head2">Quiz</span></a></p>
+                                <p class="info"><b class="lang" key="mail">Mail:</b> &nbsp; 
+                                    
+                                    <a target="_self" onclick="ga.getAll()[0].send('event', 'Hyperlink - Email', 'Click', 'Not a Lead');" href="mailto:testseries@abc.com">testseries@abc.com</a>
+                                    
+                                     <br><br><br><br><b class="lang" key="follow">Follow Us On</b><br> 
+                                </p>
+                                <div class="eg-footer-social">
+                                    <ul class="social_link" style="height:38px; width:38px; display: flex;">
+                                        
+                                         <li><a itemprop="sameAs" class="facebook_hover" href="https://www.facebook.com/edugorilladotcom" target="_blank"><img src="/static/images/FB.png" alt="facebook"></a></li>
+                                        
+                                        
+                                        <li><a itemprop="sameAs" class="twitter_hover" href="https://twitter.com/edugorilla" target="_blank"><img src="/static/images/twitter.png" alt="twitter"></a></li>
+                                        
+                                        
+                                        <li><a itemprop="sameAs" class="youtube_hover" href="https://www.youtube.com/channel/UC03sLPdlVDnplAGFQ88NrCA" target="_blank"><img src="/static/images/youtube.png" alt="youtube"></a></li>
+                                        
+                                        
+                                        <li><a itemprop="sameAs" class="linkedin_hover" href="https://www.linkedin.com/company/edugorilla-community" target="_blank"><img src="/static/images/linkdin.png" alt="linkdin"></a></li>
+                                        
+                                        
+                                        <li><a itemprop="sameAs" class="instagram_hover" href="https://www.instagram.com/edugorilla" target="_blank"><img src="/static/images/instagram.png" alt="instagram"></a></li>
+                                        
+                                    </ul>
+                                </div>
+                                
+                                <span class="test-series-info info">
+                                </span>
+                                
+                                <div id="google_translate_element"></div>      
+                            </div>                
+                        </div> 
+                        
+                        <div class="col-xs-12 col-sm-2 col-md-2 pr-3">          
+                            <p class="footer_heading"><b class="lang" key="about">ABOUT</b></p>
+                            <ul class="sub_menu">
+                                <li><a target="_blank" itemprop="url" href="https://edugorilla.com/about-us/" class="lang" key="aboutus">About Us</a></li>
+                                <li><a itemprop="url" href="https://edugorilla.com/category/impactstories/" class="lang" key="impact">Impact Stories</a></li>
+                                <li><a itemprop="url" href="https://edugorilla.com/media/" class="lang" key="media">Media</a></li>
+                            </ul> 
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 pr-3">          
+                            <p class="footer_heading"><b class="lang" key="help">HELP</b></p>
+                            <ul class="sub_menu">
+                                <li><a target="_blank" onclick="ga.getAll()[0].send('event', 'Hyperlink - Contact us', 'Click', 'Not a Lead');" itemprop="url" href="https://edugorilla.com/contact-us/" class="lang" key="contact">Contact</a></li>
+                                <li><a target="_blank" itemprop="url" href="https://edugorilla.com/category/jobs/" class="lang" key="career">Career With Us</a></li>
+                                <li><a target="_blank" itemprop="url" href="https://edugorilla.com/iit-jee-neet-ssc-upsc-bank-po-ibps-bitsat-exam-dates/" class="lang" key="examCalendar">Exam Calendar</a></li>
+                                <li><a target="_blank" onclick="ga.getAll()[0].send('event', 'Hyperlink - Support', 'Click', 'Not a Lead');" itemprop="url" href="https://edugorilla.freshdesk.com/support/home/?src=fMenu" class="lang" key="support">Support</a></li>
+                            </ul> 
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 pr-2">          
+                            <p class="footer_heading"><b class="lang" key="student">STUDENT</b></p>
+                            <ul class="sub_menu">
+                                <li><a target="_blank" itemprop="url" href="https://directory.edugorilla.com/coaching/" class="lang" key="listofcoaching">List of Coachings</a></li>
+                                <li><a target="_blank" itemprop="url" href="https://directory.edugorilla.com/schools/" class="lang" key="listofschools">List of Schools</a></li>
+                                <li><a target="_blank" itemprop="url" href="https://edugorilla.com/forum/" class="lang" key="forum">Forum</a></li>
+                                <li><a target="_blank" itemprop="url" href="https://edugorilla.com/career-maps/" class="lang" key="allcareers">All Careers</a></li>
+                                <li><a target="_blank" itemprop="url" href="https://edugorilla.com/blog" class="lang" key="blog">Blog</a></li>
+                                <li><a target="_blank" itemprop="url" href=" https://market.edugorilla.com/" class="lang" key="marketplace">Market Place</a></li>
+                            </ul> 
+                        </div>
+                        <div class="col-xs-12 col-sm-5 col-md-3">         
+                            <p class="footer_heading"><b class="lang" key="business">BUSINESS</b></p>
+                            <ul class="sub_menu">
+                                <li><a target="_blank" itemprop="url" href="https://gibbon.edugorilla.com/?src=testseries" class="lang" key="onlineseries">Start Your Online Educational Academy</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 pr-2">          
+                            <p class="footer_heading" style="padding-top: 10px; margin-bottom: 17px;"><b class="lang" key="download">Download Our App</b></p>
+                            <ul class="sub_menu">
+                                <li>
+                                  <a class="navbar-brand" href="/"><span class="head1">Your</span> <span class="head2">Quiz</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 pr-2">          
+                            <p class="footer_heading" style="padding-top: 10px; margin-bottom: 17px;"><b class="lang" key="changelanguage">Change Language</b></p>
+                            <ul class="sub_menu">
+                                <li>
+                                    <select name="langSwitcher" id="langSwitcher" onchange="changeLang()" class="form-control" style="height: 40px;">
+                                        <option value="1" selected="">English</option>
+                                        <option value="2">हिंदी</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+          
+            <div class="container">
+                <div class="row copyright_row">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 eg_copyright_text" style="margin-top:25px;">
+                        
+                        <p style="color:#ffff;">Copyright © <span class="p_year">2022</span> Your Quiz Community Pvt. Ltd.</p>
+                        
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 eg_copyright_link" style="margin-top:25px;">
+                        <ul class="copyright_menu">
+                            
+                            <li><a target="_blank" itemprop="url" href="https://edugorilla.com/disclaimer/" class="lang" key="disclaimer">Disclaimer</a><span class="dividers">|</span></li>
+                            <li><a target="_blank" itemprop="url" href="https://edugorilla.com/terms-and-conditions/" class="lang" key="TndC">Terms and Conditions</a><span class="dividers">|</span></li>
+                            <li><a target="_blank" itemprop="url" href="https://edugorilla.com/our-code-of-ethics/" class="lang" key="ethics">Our Code of ethics</a><span class="dividers">|</span></li>
+                            <li><a target="_blank" itemprop="url" href="https://edugorilla.com/privacy-policy-2/" class="lang" key="privacypolicy">Privacy Policy</a><span class="dividers">|</span></li>
+                            <li><a target="_blank" itemprop="url" href="https://edugorilla.com/copyright-2/" class="lang" key="copyright">Copyright</a><span class="dividers">|</span></li>
+                            <li><a target="_blank" itemprop="url" href="https://edugorilla.com/return-refund-policy/" class="lang" key="returnpolicy">Return Policy</a><span class="dividers">|</span></li>
+                            <li><a target="_blank" itemprop="url" href="/sitemap.xml" class="lang" key="sitemap">Sitemap</a></li>
+                            
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+      {% block js %}{% endblock %}
+</html>

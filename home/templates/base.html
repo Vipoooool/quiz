@@ -1,0 +1,419 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} {% endblock %}</title>
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/bootstrap.css' %}" >
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/style.css' %}">
+
+
+    <!-- Responsive -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/responsive.css' %}">
+
+    <!-- Colors -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheets/colors/color1.css' %}" id="colors">
+
+    {% block css %} {% endblock %}
+
+
+    <!-- Favicon and touch icons  -->
+    <link href="{% static 'icon/apple-touch-icon-48-precomposed.png' %}" rel="apple-touch-icon-precomposed" sizes="48x48">
+    <link href="{% static 'icon/apple-touch-icon-57-precomposed.png' %}" rel="apple-touch-icon-precomposed" sizes="57x57">
+    <link href="{% static 'icon/favicon.png' %}" rel="shortcut icon">
+</head>
+
+<body>
+	<div class="boxed">
+        <!-- <div class="windows8"> -->
+            <!-- <div class="preload-inner">
+                <div class="wBall" id="wBall_1">
+                    <div class="wInnerBall"></div>
+                </div>
+                <div class="wBall" id="wBall_2">
+                    <div class="wInnerBall"></div>
+                </div>
+                <div class="wBall" id="wBall_3">
+                    <div class="wInnerBall"></div>
+                </div>
+                <div class="wBall" id="wBall_4">
+                    <div class="wInnerBall"></div>
+                </div>
+                <div class="wBall" id="wBall_5">
+                    <div class="wInnerBall"></div>
+                </div>
+            </div> -->
+        <!-- </div> -->
+    	<!-- <div class="header-inner-pages">
+    		<div class="top">
+    			<div class="container">
+    				<div class="row">
+    					<div class="col-md-12">
+    						<div class="text-information">
+    							<p>Welcome to Educate HTML Template</p>
+    						</div>
+                            <div class="right-bar">
+        						<ul class="flat-information">
+        							<li class="phone">
+        								<a href="+61383766284" title="Phone number">0084 - 9622 26602</a>
+        							</li>
+        							<li class="email">
+        								<a href="mailto:AlitStudios@gmail.com" title="Email address"> info@educate.com</a>
+        							</li>
+                                </ul>
+                                <ul class="flat-socials">
+        							<li class="facebook">
+        								<a href="#">
+        									<i class="fa fa-facebook"></i>
+        								</a>
+        							</li>
+        							<li class="twitter">
+        								<a href="#">
+        									<i class="fa fa-twitter"></i>
+        								</a>
+        							</li>
+        							<li class="linkedin">
+        								<a href="#">
+        									<i class="fa fa-linkedin"></i>
+        								</a>
+        							</li>
+        							<li class="youtube">
+        								<a href="#">
+        									<i class="fa fa-youtube-play"></i>
+        								</a>
+        							</li>
+        						</ul>
+                            </div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>      
+    	</div> -->
+        <!-- /.header-inner-pages -->
+
+    	<!-- Header --> 
+    	<header id="header" class="header clearfix"> 
+        	<div class="container">
+                <div class="header-wrap clearfix">
+                    <div id="logo" class="logo">
+                        <a href="index.html" rel="home">
+                            <img src="{% static 'images/logo.png' %}" alt="image">
+                        </a>
+                    </div><!-- /.logo -->            
+                    <div class="nav-wrap">
+                        <div class="btn-menu">
+                            <span></span>
+                        </div><!-- //mobile menu button -->
+                        <nav id="mainnav" class="mainnav">
+                            <ul class="menu"> 
+                                <li><a href="#">Home</a>
+                                </li>
+
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/history">भारतीय इतिहास</a>
+                                </li>
+
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/constitution">संविधान</a>
+                                </li>
+
+                                <li class="nav-item">
+                                  <a class="nav-link" href="/geography">भूगोल</a>
+                                </li>
+                                
+                                <li class="has-sub">
+                                    <a href="#">सामान्य विज्ञान</a>
+                                    <ul class="submenu">
+                                        <li><a class="dropdown-item" href="/general_science/">जनरल साइंस</a></li>
+                                        <li><a class="dropdown-item" href="/physics/">भौतिक विज्ञान</a></li>
+                                        <li><a class="dropdown-item" href="/chemistry/">रसायन विज्ञान</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/mp_gk">मध्य प्रदेश G.K</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/current_affair">समसामयिकी</a>
+                                </li>
+
+                                <!-- <li><a href="about-us.html">About</a>
+                                </li>
+
+                                <li><a href="team.html">Team</a>              
+                                </li>                               
+
+                                <li>
+                                    <a href="blog.html">Blog</a>
+                                </li>
+
+                                <li><a href="contact.html">Contact</a>
+                                </li> -->
+                                
+                                <li class="has-sub">
+                                    <a href="courses-grid.html">Courses</a>
+                                    <ul class="submenu"> 
+                                        <li><a href="courses-grid.html">Courses grid</a></li>
+                                        <li><a href="courses-grid-sidebar.html">Courses grid sidebar</a></li> 
+                                        <li><a href="courses-list-sidebar.html">Courses list sidebar</a></li>   
+                                        <li><a href="courses-single.html">Courses single</a></li>   
+                                    </ul><!-- /.submenu -->
+                                </li>
+
+                                {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <li class="nav-item">
+                                        <img class="img-responsive user_profile" src="{% static 'images/user_profile.png' %}" data-loaded="true">
+                                    </li>
+                                    <li class="nav-item">
+                                        <a>{{request.user}}</a>
+                                        <ul class="submenu"> 
+                                            <li><a href="/user_profile">My Profile</a></li>
+                                            <li><a href="/logout">Logout</a></li>  
+                                        </ul>
+                                    </li>
+                                  </li>
+                                    {% if user.is_superuser %}
+                                      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                                        <ul class="navbar-nav">
+                                          <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                              Admin
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                              <li><a class="dropdown-item" href="/add_quiz/">Add Quiz</a></li>
+                                              <li><a class="dropdown-item" href="/add_question/">Add Questions</a></li>
+                                              <li><a class="dropdown-item" href="/results/">Results of the Users</a></li>
+                                            </ul>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    {% endif %}
+                                {% else %}
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="/signup">Sign Up</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="/login">Login</a>
+                                  </li>
+                                {% endif %}
+                            </ul><!-- /.menu -->
+                        </nav><!-- /.mainnav -->    
+                    </div><!-- /.nav-wrap -->
+
+                    <div id="s" class="show-search">
+                        <a href="#"><i class="fa fa-search"></i></a>
+                    </div><!-- /.show-search -->
+                    
+                    <div class="submenu top-search">
+                        <div class="widget widget_search">
+                            <form class="search-form">
+                                <input type="search" class="search-field" placeholder="Search …">
+                                <input type="submit" class="search-submit">
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div><!-- /.header-inner --> 
+            </div>
+        </header><!-- /.header -->
+
+        {% block body %} {% endblock %}
+
+        <footer class="footer">  
+            <div class="footer-widgets">   
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">  
+                            <div class="widget widget-text">
+                                <img src="{% static 'images/blog/Footer-01.jpg' %}" alt="image">
+                                <ul>
+                                    <li class="address">68 Tran Hung Dao, Binh Luc, H.Nam</li>
+                                    <li class="phone"><a href="#">+84 962 216 601</a></li>
+                                    <li class="email"><a href="#">contact@company.mail.com</a></li>  
+                                </ul> 
+                            </div><!-- /.widget -->      
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="widget widget_tweets clearfix">
+                                <h5 class="widget-title">User Links</h5>
+                                <ul class="link-left">
+                                    <li>
+                                        <a href="#">About Us</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Contact</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Quizzes</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">FAQs</a>
+                                    </li>
+                                </ul>
+                                <ul class="link-right">
+                                    <li>
+                                        <a href="#">Become a Teacher</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Maintenance</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Language Packs</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">LearnPress</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Release Status</a>
+                                    </li>
+                                </ul>
+                            </div><!-- /.widget-recent-tweets -->
+                        </div><!-- /.col-md-2 -->
+
+                        <div class="col-md-3">
+                            <div class="widget widget_recent-courses">
+                                <h5 class="widget-title">Recent Courses</h5>
+                                <ul class="recent-courses-news clearfix">
+                                    <li>
+                                        <div class="thumb">
+                                            <img src="{% static 'images/blog/Footer-02.png' %}" alt="image">
+                                        </div>
+                                        <div class="text">
+                                            <a href="#">General Science Quiz</a>
+                                        </div>
+                                        <div class="review-rating">
+                                            <ul class="flat-reviews">
+                                                <li class="star">
+                                                    <a href="#"><i class="fa fa-star"></i></a>
+                                                </li>
+                                                <li class="star">
+                                                    <a href="#"><i class="fa fa-star"></i></a>
+                                                </li>
+                                                <li class="star">
+                                                    <a href="#"><i class="fa fa-star"></i></a>
+                                                </li>
+                                                <li class="star">
+                                                    <a href="#"><i class="fa fa-star-half-o"></i></a>
+                                                </li>
+                                                 <li class="star">
+                                                    <a href="#"><i class="fa fa-star-o"></i></a>
+                                                </li>
+                                            </ul>
+                                            <p>25 Reviews</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="thumb">
+                                            <img src="{% static 'images/blog/Footer-03.png' %}" alt="image">
+                                        </div>
+                                        <div class="text">
+                                            <a href="#">General Cemistry Quiz</a>
+                                        </div>
+                                        <div class="review-rating">
+                                            <ul class="flat-reviews">
+                                                <li class="star">
+                                                    <a href="#"><i class="fa fa-star"></i></a>
+                                                </li>
+                                                <li class="star">
+                                                    <a href="#"><i class="fa fa-star"></i></a>
+                                                </li>
+                                                <li class="star">
+                                                    <a href="#"><i class="fa fa-star"></i></a>
+                                                </li>
+                                                <li class="star">
+                                                    <a href="#"><i class="fa fa-star-half-o"></i></a>
+                                                </li>
+                                                 <li class="star">
+                                                    <a href="#"><i class="fa fa-star-o"></i></a>
+                                                </li>
+                                            </ul>
+                                            <p>25 Reviews</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- /.widget-quick-contact -->
+                        </div><!-- /.col-md-4-->
+
+                        <div class="col-md-3">
+                            <div class="widget widget-quick-contact">
+                                <h5 class="widget-title">Quick Contact</h5>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form class="flat-contact-form" id="contactform" method="post" action="./contact/contact-process.php">
+
+                                            <input type="email" value="" tabindex="2" placeholder="Your Email" name="email" id="email-contact" required="">
+                                           
+                                            <textarea class="type-input" tabindex="3" placeholder="Message" name="message" id="message-contact" required=""></textarea> 
+                                            
+                                            <div class="submit-wrap">
+                                            <button class="flat-button bg-orange"><i class="fa fa-long-arrow-right"></i></button>
+                                            </div>
+                                           
+                                        </form><!-- /.comment-form -->     
+                                    </div><!-- /.col-md-12 -->
+                                </div>
+                            </div><!-- /.widget .widget-instagram -->
+                        </div>
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.footer-widgets -->
+        </footer>
+
+        <a class="go-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+
+        <!-- Bottom -->
+        <div class="bottom">
+            <div class="container">
+                <ul class="flat-socials-v1">
+                    <li class="facebook">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li class="twitter">
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="vimeo">
+                        <a href="#"><i class="fa fa-vimeo"></i></a>
+                    </li>
+                    <li class="rss">
+                        <a href="#"><i class="fa fa-rss"></i></a>
+                    </li>
+                </ul>    
+                <div class="row">
+                    <div class="container-bottom">
+                        <div class="copyright"> 
+                            <p>Copyright © 2022. <span> Designed by <a href="#">SachBliss</a></span>. All Rights Reserved.</p>
+                        </div>
+                    </div><!-- /.container-bottom -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div>
+    </div>
+
+   <!-- Javascript -->   
+   {% block javascript %} {% endblock %}
+
+   <script type="text/javascript" src="{% static 'javascript/jquery.min.js' %}"></script>
+   <script type="text/javascript" src="{% static 'javascript/bootstrap.min.js' %}"></script>
+   <script type="text/javascript" src="{% static 'javascript/jquery.easing.js' %}"></script>
+   <script type="text/javascript" src="{% static 'javascript/jquery-waypoints.js' %}"></script>
+   <script type="text/javascript" src="{% static 'javascript/owl.carousel.js' %}"></script>
+   <script type="text/javascript" src="{% static 'javascript/parallax.js' %}"></script>
+   <script type="text/javascript" src="{% static 'javascript/jquery.cookie.js' %}"></script>   
+   <script type="text/javascript" src="{% static 'javascript/jquery-countTo.js' %}"></script>
+   <!-- <script type="text/javascript" src="{% static 'javascript/jquery.sticky.js' %}"></script> -->
+   <script type="text/javascript" src="{% static 'javascript/main.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Marathon Quiz {% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'stylesheets/marathon.css' %}">
+<link rel="stylesheet" href="{% static 'stylesheets/bootstrap.min.css' %}">
+{% endblock %}
+
+{% block body %}
+<p id="csrf" hidden>{{ csrf_token }}</p>
+
+<div class="container text-center">
+    <h1 class="text-danger mt-3"> Marathon Quiz </h1>
+    {% if questions %}
+    {% for question in questions %}
+    <span id="question_{{ question.id }}">
+        <h3>{{ forloop.counter0|add:page_obj.start_index }}. {{ question.content }}</h3>
+
+        <p>
+            {% for answer in question.get_answers %}
+            <input class="btn btn-primary btn-lg" type="submit" id="answer_{{ answer.id }}" value="{{ answer.content }}"
+                onclick="answerSelected(this)">
+            {% endfor %}
+        </p>
+
+    </span>
+    {% endfor %}
+
+    {% else %}
+    <p>No Questions Available!</p>
+    {% endif %}
+
+    {% if is_paginated %}
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+        {% else %}
+        <li class="disabled"><span>&laquo;</span></li>
+        {% endif %}
+        {% for i in paginator.page_range %}
+        {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+        {% else %}
+        <li class="disabled"><span>&raquo;</span></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'javascript/marathon.js' %}"></script>
+{% endblock %}
