@@ -16,7 +16,7 @@ SECRET_KEY = 'n+qfzy!zoth6))00$8mn^yrly+7rfq0wygs1kpn7$xh87*as97'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'sampy3.pythonanywhere.com']
 
 
 # Application definition
@@ -143,7 +143,7 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # Redirect urls
 
-LOGIN_REDIRECT_URL = '/home/'
+LOGIN_REDIRECT_URL = '/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -162,6 +162,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
 
 ##Added Manually

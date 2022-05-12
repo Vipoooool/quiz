@@ -87,12 +87,12 @@ class TimeQuizView(generic.TemplateView):
 
 class TimeQuizListView(generic.ListView):
     template_name = 'time_quiz_list.html'
-    queryset = Quiz.objects.all()
+    queryset = Quiz.objects.filter(quiz_type='TQ')
     context_object_name = 'time_quiz_list'
 
 class MarathonQuizView(generic.ListView):
     template_name = 'marathon_quiz.html'
-    queryset = Question.objects.all()
+    queryset = Question.objects.filter(quiz=1)
     context_object_name = 'questions'
     paginate_by = 10
 
