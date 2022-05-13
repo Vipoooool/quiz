@@ -1,17 +1,19 @@
 from pathlib import Path
+import re
 
 def parse_qa(file):
     with open(file) as qa_file:
         qa_content = qa_file.read()
     qas = qa_content.split('QUES')
-    for qa in qas[1:]:
-        qa = qa.split('\n')
-        # print(qa)
-        qsn = qa[0]
-        ansrs = qa[2:6]
-        corr_ans = qa[7].split('-')[-1]
+    for qai in qas[1:]:
+        qsn = re.search(r'\d+\.(.*)\n\(a\)', qai, re.DOTALL)
+        print(qsn.group(1))
+        ansrs = re.findall(r'\([abcde]\)(.*)', qai)
+        print(ansrs)
+        corr_ans = re.search('उत्तर.*\(([abcde])\)', qai)
+        print(corr_ans.group(1))
         # print(qsn, ansrs, corr_ans)
-        print("\nQuestion:", qsn, "\n\nPossible answers:\n", "\n".join(ansrs), "\n\nCorrect answer: ", corr_ans)
+        # print("\nQuestion:", qsn, "\n\nPossible answers:\n", "\n".join(ansrs), "\n\nCorrect answer: ", corr_ans)
 
 
 if __name__ == '__main__':

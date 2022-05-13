@@ -16,7 +16,7 @@ SECRET_KEY = 'n+qfzy!zoth6))00$8mn^yrly+7rfq0wygs1kpn7$xh87*as97'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'sampy3.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sampy3.pythonanywhere.com']
 
 
 # Application definition
@@ -104,6 +104,9 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+# FILE_UPLOAD_HANDLERS = ["django.core.files.uploadhandler.MemoryFileUploadHandler",
+#  "django.core.files.uploadhandler.TemporaryFileUploadHandler"]
 
 SITE_ID = 1
 

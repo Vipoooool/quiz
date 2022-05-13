@@ -18,7 +18,6 @@ class QuestionForm(forms.ModelForm):
 
 class UploadFileForm(forms.Form):
     quizzes = [(str(q.id), q.name) for q in Quiz.objects.all()]
-    # quiz_type = forms.ChoiceField(choices=(("TQ", "Time"), ("MQ", "Marathon")))
     quiz_name = forms.ChoiceField(choices = quizzes)
     time = forms.IntegerField(help_text="Time in seconds if Time Quiz")
     file_field = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
